@@ -70,8 +70,6 @@ public class CreateCourierTest {
     @DisplayName("Courier can not be created with existing courier")
     public void courierCanNotBeCreatedWithExistingCourierTest() {
 
-        // создать курьера
-        courierClient.create(courierDefault);
         // вызвать метод создания курьера
         ValidatableResponse createResponse = courierClient.create(courierDefault);
 
@@ -90,8 +88,6 @@ public class CreateCourierTest {
     @DisplayName("Courier can not be created with existing login")
     public void courierCanNotBeCreatedWithExistingLoginTest() {
 
-        // создать курьера
-        courierClient.create(courierWithExistLogin);
         // вызвать метод создания курьера
         ValidatableResponse createResponse = courierClient.create(courierWithExistLogin);
 

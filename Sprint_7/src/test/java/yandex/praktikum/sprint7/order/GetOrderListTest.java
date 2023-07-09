@@ -26,11 +26,11 @@ public class GetOrderListTest {
         ValidatableResponse orderListResponse = orderClient.orderList();
         List<Object> orders = orderListResponse.extract().path("orders");
 
-        // проверить статус код
+        // РїСЂРѕРІРµСЂРёС‚СЊ СЃС‚Р°С‚СѓСЃ РєРѕРґ
         int statusCode = orderListResponse.extract().statusCode();
         assertEquals(200, statusCode);
 
-        // проверить, что список не пустой
+        // РїСЂРѕРІРµСЂРёС‚СЊ, С‡С‚Рѕ СЃРїРёСЃРѕРє РЅРµ РїСѓСЃС‚РѕР№
         assertFalse(orders.isEmpty());
     }
 }

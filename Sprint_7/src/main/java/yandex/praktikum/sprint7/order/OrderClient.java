@@ -1,7 +1,9 @@
 package yandex.praktikum.sprint7.order;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import yandex.praktikum.sprint7.GeneralData;
+
 import static io.restassured.RestAssured.given;
 
 public class OrderClient extends GeneralData {
@@ -13,7 +15,7 @@ public class OrderClient extends GeneralData {
 
     }
 
-    // создать
+    @Step("Create order")
     public ValidatableResponse create(Order order) {
         return given()
                 .spec(getBaseSpec())
@@ -23,6 +25,7 @@ public class OrderClient extends GeneralData {
                 .then();
     }
 
+    @Step("Cancel order")
     public ValidatableResponse cancel(OrderTrack orderTrack) {
         return given()
                 .spec(getBaseSpec())
@@ -32,6 +35,8 @@ public class OrderClient extends GeneralData {
                 .then();
     }
 
+
+    @Step("Get orderlist")
     public ValidatableResponse orderList() {
         return given()
                 .spec(getBaseSpec())

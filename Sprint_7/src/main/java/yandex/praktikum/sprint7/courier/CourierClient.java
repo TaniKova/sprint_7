@@ -1,5 +1,6 @@
 package yandex.praktikum.sprint7.courier;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import yandex.praktikum.sprint7.GeneralData;
 import static io.restassured.RestAssured.given;
@@ -11,7 +12,8 @@ public class CourierClient extends GeneralData {
 
      public CourierClient() { }
 
-     public ValidatableResponse create(Courier courier) {
+    @Step("Create courier")
+    public ValidatableResponse create(Courier courier) {
          return given()
                  .spec(getBaseSpec())
                  .body(courier)
@@ -20,6 +22,7 @@ public class CourierClient extends GeneralData {
                  .then();
      }
 
+    @Step("Login courier")
      public ValidatableResponse login(CourierCredentials courierCredentials) {
          return given()
                  .spec(getBaseSpec())
@@ -29,6 +32,7 @@ public class CourierClient extends GeneralData {
                  .then();
      }
 
+     @Step("delete courier")
      public ValidatableResponse delete(int courierId) {
          return given()
                  .spec(getBaseSpec())
